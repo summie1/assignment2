@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+
+<title>SIAYA COUNTY</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
+  <script src="js/leaflet-providers.js"></script>
+	<style>
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 6px;
+  margin: 2.5px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 1px solid #4CAF50;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+h1 {
+  color: blue;
+  font-family: times;
+  font-size: 200%;
+
+}
+p  {
+  color: purple;
+  font-family: Times New Roman;
+  font-size: 100%;
+}
+p {
+  border: 2px solid powderblue;
+  padding:0px;
+  margin: 0px;
+  }
+  
+  <!--decoration of a link//<a>-->
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+</style>
+    
+</head>
+
+<a href="#" style="margin-left: 40% ; font-size: 24px; font-family: 'Algerian'; color: rgb(255, 0, 0);">SIAYA COUNTY</a>
+<br>
+<a href="#" style="text-align: left; font-size: 18px; font-family: 'Times New Roman'; color: rgb(0, 0, 255);">FIND YOUR RESTAURANT LOCATION</a>
+
+<body>
+
+<p>
+  <label><input type="checkbox" id="checkbox" /> Click</label>
+</p>
+<p>
+  <button id="button">Siaya County</button>
+</p>
+
+<button class="button button">Siaya County</button>
+<section class="layer">
+<div id="map" style="width:1500px; height:800px;"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<form action="/contact" method="post">
+		<input type="text" placeholder="Email" name="email">
+		<input type="text" placeholder="Query" name="Samson">
+		<button type="submit">Submit</button>
+	</form>
+       
+		<script>
+		
+        // Initialize the map
+        const map = L.map('map')
+      
+        // Get the tile layer from OpenStreetMaps
+		
+        L.tileLayer ('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      
+        // Specify the maximum zoom of the map
+        maxZoom: 35,
+      
+        // Set the attribution for OpenStreetMaps
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+		
+		
+		
+		var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 35,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+	 var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 35,
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+}).addTo(map);
+
+        // Set the view of the map
+        // with the latitude, longitude and the zoom value
+        // map.setView
+        map.setView([ 0.062629, 34.287807] , 17);
+      
+        // Show a market at the position of the Eiffel Tower
+        let eiffelMarker = L.marker([ 0.0638712, 34.2869563]).addTo(map);
+      
+        // Bind popup to the marker with a popup
+        eiffelMarker.bindPopup("Odhiambo Samson <br>03/12/2022<br>SIAYA COUNTY REFERRAL HOSPITAL").closePopup();
+		
+		map.overlayMapTypes.push(new google.maps.ImageMapType({
+ tileSize: new google.maps.Size(256, 256),
+ getTileUrl: function (coord, zoom) {
+   return 'https://raster.stream.woolpert.io/layers/LAYER_ID/tiles/'
+     + zoom + '/' + coord.x + '/' + coord.y + '?key=API_KEY';
+ },
+}));
+
+
+    </script>
+            
+    </section>
+	
+	<section class="footer">
+       <div class="footer_section">
+       <style>
+        .footer_section
+		{
+            display: flex;
+            flex-direction: row;
+            row-gap: 2rem;
+            color: rgb(0, 20, 240);
+			font-family: Times New Roman;
+            list-style: none;
+            margin-top: 1.8rem;
+        }
+	
+    </style>
+       <li class="contributers">CONTRIBUTERS
+        <ul style="color: rgb(0, 0, 255); ;">Odhiambo Samson</ul>
+        
+       </li>
+       <li  style="margin-left: 30% ;" class="authers">AUTHORS
+        <ul style="color:rgb(0, 0, 255);">Odhiambo Samson</ul>
+    </li>
+       <li  style="margin-left: 20% ;" class="marginal information">MARGINAL INFORMATION
+        <ul style="color: rgb(0, 0, 255);">Siaya County basemap produced by: <br>Odhiambo Samson<br>
+		<a href ="mailto:onyangosamson93@gmail.com;"><target="self">Send Email<a>
+        </ul>
+		<ul style="color: rgb(255, 1, 1);">&copy; &#127757; @2022</ul>
+    </li>
+
+    </div>
+    
+</section>
+
+</body>
+</html>
+
+
+mongosh "mongodb+srv://cluster0.fezkluw.mongodb.net/myFirstDatabase" --apiVersion 1 --username samson
+
+
+mongodb+srv://samson:<password>@cluster0.fezkluw.mongodb.net/?retryWrites=true&w=majority
